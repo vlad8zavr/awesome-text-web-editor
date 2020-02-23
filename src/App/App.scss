@@ -31,6 +31,7 @@
 
 .toolbar {
     position: relative;
+    padding: 5px;
     border-bottom: 2px solid rgb(238, 238, 238);
 
     &::before {
@@ -53,4 +54,8 @@
             color: $color-dark-silver;
         }
     }
+}
+
+.text-area {
+    padding: 0 5px;
 }

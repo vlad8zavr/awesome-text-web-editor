@@ -10,15 +10,15 @@ interface Props {
 const Toolbar = (props: Props) => (
     <div className='toolbar'>
         <span
-            className='toolbar__item material-icons css-583gqu'
+            className='toolbar__item material-icons'
             onMouseDown={event => CustomEditor.toggleBoldMark(props.editor, event)}
         >format_bold</span>
         <span
-            className='toolbar__item material-icons css-583gqu'
+            className='toolbar__item material-icons'
             onMouseDown={event => CustomEditor.toggleItalicMark(props.editor, event)}
         >format_italic</span>
         <span
-            className='toolbar__item material-icons css-583gqu'
+            className='toolbar__item material-icons'
             onMouseDown={event => CustomEditor.toggleCodeBlock(props.editor, event)}
         >code</span>
     </div>

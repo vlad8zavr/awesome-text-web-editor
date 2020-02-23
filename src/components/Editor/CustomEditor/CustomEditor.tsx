@@ -1,7 +1,7 @@
 import React from 'react';
 import { Editor, Transforms, Text } from 'slate';
 import { ReactEditor } from 'slate-react';
-import { TEXTMODE, FORMAT } from '../../../data/enums/enums';
+import { TEXTMODE } from '../../../data/enums/enums';
 
 const CustomEditor = {
     TAB_4_SPACES: '    ',

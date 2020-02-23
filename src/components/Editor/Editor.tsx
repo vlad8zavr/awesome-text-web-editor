@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useRef, useCallback } from 'react';
-import { withReact, Slate, Editable, useSlate } from 'slate-react';
-import { createEditor, Editor, Transforms, Text } from 'slate';
+import { withReact, Slate, Editable } from 'slate-react';
+import { createEditor, Editor } from 'slate';
 import { initialValue } from '../../data/slateValue/slateInitValue';
 import { DefaultElement, CodeElement } from './Elements/Elements';
 import Leaf from './Leaf/Leaf';
@@ -68,6 +68,7 @@ const SyncingEditor: React.FC = () => {
                     renderElement={renderElement}
                     renderLeaf={renderLeaf}
                     onKeyDown={handleKeyDownEvent}
+                    className='text-area'
                 />
             </Slate>
         </div>

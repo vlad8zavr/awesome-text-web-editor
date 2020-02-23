@@ -8,11 +8,8 @@ export enum KEYS {
 export enum TEXTMODE {
     paragraph = 'paragraph',
     code = 'code',
+    bold = 'bold',
+    italic = 'italic',
 };
 
-export enum FORMAT {
-    bold='bold',
-    italic='italic',
-    underline='underline',
-    code='code',
-}
+
