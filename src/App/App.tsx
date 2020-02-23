@@ -1,6 +1,7 @@
 import React from 'react';
-import SyncingEditor from './components/Editor/Editor';
-import InfoBar from './components/InfoBar/InfoBar';
+import SyncingEditor from '../components/Editor/Editor';
+import InfoBar from '../components/InfoBar/InfoBar';
+import './App.scss';
 
 const App = () => {
     return (

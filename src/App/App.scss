@@ -1,9 +1,5 @@
-$offset-1: 1px;
-$offset-5: 5px;
-$offset-10: 10px;
-
-$color-silver: silver;
-$color-whitesmoke: whitesmoke;
+@import '../assets/style/offset.scss';
+@import '../assets/style/palette.scss';
 
 .info-bar {
     margin: $offset-10;
