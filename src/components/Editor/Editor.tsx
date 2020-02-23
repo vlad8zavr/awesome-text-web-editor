@@ -51,7 +51,7 @@ const SyncingEditor: React.FC = () => {
         <Slate 
             editor={editor} 
             value={value} 
-            onChange={value => setValue(value as any)}
+            onChange={value => setValue(value as State[])}
         >
             <Editable
                 renderElement={renderElement}
@@ -68,6 +68,9 @@ const SyncingEditor: React.FC = () => {
                             { type: match ? 'paragraph' : 'code' },
                             { match: n => Editor.isBlock(editor, n) }
                         );
+                    } else if (event.key === 'Tab') {
+                        event.preventDefault();
+                        editor.insertText('    ');
                     }
                 }}
             />
