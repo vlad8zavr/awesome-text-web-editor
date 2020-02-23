@@ -1,6 +1,6 @@
-import React, { useMemo, useState, useRef } from 'react';
-import { withReact, Slate, Editable } from 'slate-react';
-import { createEditor, Editor } from 'slate';
+import React, { useMemo, useState, useRef, useCallback } from 'react';
+import { withReact, Slate, Editable, useSlate } from 'slate-react';
+import { createEditor, Editor, Transforms } from 'slate';
 import { initialValue } from '../../data/slateValue/slateInitValue';
 
 interface Child {
@@ -17,6 +17,20 @@ interface State {
     children: Child[];
 };
 
+const DefaultElement = (props: any) => {
+    return <p {...props.attributes}>{props.children}</p>
+  }
+
+  
+const CodeElement = (props: any) => {
+    return (
+      <pre {...props.attributes}>
+        <code>{props.children}</code>
+      </pre>
+    )
+}
+
+
 const SyncingEditor: React.FC = () => {
     const editor = useMemo(() => withReact(createEditor()), []);
     const [value, setValue] = useState(initialValue);
@@ -24,17 +38,36 @@ const SyncingEditor: React.FC = () => {
     const editorRef = useRef<Editor | null>(null);
     const remoteRef = useRef(null);
 
+    const renderElement = useCallback((props: any) => {
+        switch (props.element.type) {
+          case 'code':
+            return <CodeElement {...props} />
+          default:
+            return <DefaultElement {...props} />
+        }
+    }, []);
+
     return (
         <Slate 
             editor={editor} 
             value={value} 
-            onChange={value => setValue(value as State[])}
+            onChange={value => setValue(value as any)}
         >
             <Editable
+                renderElement={renderElement}
                 onKeyDown={event => {
-                    if (event.key === '&') {
+                    if (event.key === '`' && event.ctrlKey) {
                         event.preventDefault();
-                        editor.insertText('and');
+                        // Determine whether any of the currently selected blocks are code blocks.
+                        const [match] = Editor.nodes(editor, {
+                            match: n => n.type === 'code',
+                        });
+                        // Toggle the block type depending on whether there's already a match.
+                        Transforms.setNodes(
+                            editor,
+                            { type: match ? 'paragraph' : 'code' },
+                            { match: n => Editor.isBlock(editor, n) }
+                        );
                     }
                 }}
             />

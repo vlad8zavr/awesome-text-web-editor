@@ -3,7 +3,9 @@ import SyncingEditor from './components/Editor/Editor';
 
 const App = () => {
     return (
-        <SyncingEditor />
+        <div className='wrapper'>
+            <SyncingEditor />
+        </div>
     );
 }
 

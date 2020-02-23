@@ -1,16 +1,7 @@
-$margin: 40px;
+$margin: 20px;
 
 .wrapper {
     margin: $margin;
-    border: 3px solid blue;
-}
-
-.wrapper {
-    padding: 10px;
-    background-color: silver;
-}
-
-.item {
-    padding: 5px;
-    border: 1px solid gold;
+    border: 20px solid silver;
+    border-radius: 10px;
 }
