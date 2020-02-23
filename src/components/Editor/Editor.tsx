@@ -4,7 +4,8 @@ import { createEditor, Editor, Transforms, Text } from 'slate';
 import { initialValue } from '../../data/slateValue/slateInitValue';
 import { DefaultElement, CodeElement } from './Elements/Elements';
 import Leaf from './Leaf/Leaf';
-import { State } from '../../interfaces/interfaces';
+import { State } from '../../data/interfaces/interfaces';
+import { KEYS, TEXTMODE } from '../../data/enums/enums';
 
 const SyncingEditor: React.FC = () => {
     const editor = useMemo(() => withReact(createEditor()), []);
@@ -15,7 +16,7 @@ const SyncingEditor: React.FC = () => {
 
     const renderElement = useCallback((props: any) => {
         switch (props.element.type) {
-          case 'code':
+          case TEXTMODE.code:
             return <CodeElement {...props} />
           default:
             return <DefaultElement {...props} />
@@ -30,21 +31,21 @@ const SyncingEditor: React.FC = () => {
     const handleKeyDownEvent = (event: React.KeyboardEvent<HTMLDivElement>) => {
         if (event.ctrlKey) {
             switch (event.key) {
-                case '`': {
+                case KEYS.tilda: {
                     event.preventDefault();
                     // Determine whether any of the currently selected blocks are code blocks.
                     const [match] = Editor.nodes(editor, {
-                        match: n => n.type === 'code',
+                        match: n => n.type === TEXTMODE.code,
                     });
                     // Toggle the block type depending on whether there's already a match.
                     Transforms.setNodes(
                         editor,
-                        { type: match ? 'paragraph' : 'code' },
+                        { type: match ? TEXTMODE.paragraph : TEXTMODE.code },
                         { match: n => Editor.isBlock(editor, n) }
                     );
                     break;
                 }
-                case 'b': {
+                case KEYS.bold: {
                     event.preventDefault();
                     const [match] = Editor.nodes(editor, {
                         match: n => n.bold === true,
@@ -61,7 +62,7 @@ const SyncingEditor: React.FC = () => {
             }
         } else {
             switch (event.key) {
-                case 'Tab': {
+                case KEYS.tab: {
                     event.preventDefault();
                     editor.insertText('    ');
                 }
