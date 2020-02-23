@@ -41,6 +41,10 @@ const SyncingEditor: React.FC = () => {
                     CustomEditor.toggleBoldMark(editor, event);
                     break;
                 }
+                case KEYS.italic: {
+                    CustomEditor.toggleItalicMark(editor, event);
+                    break;
+                }
             }
         } else {
             switch (event.key) {

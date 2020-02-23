@@ -15,6 +15,10 @@ const Toolbar = (props: Props) => (
         >format_bold</span>
         <span
             className='toolbar__item material-icons css-583gqu'
+            onMouseDown={event => CustomEditor.toggleItalicMark(props.editor, event)}
+        >format_italic</span>
+        <span
+            className='toolbar__item material-icons css-583gqu'
             onMouseDown={event => CustomEditor.toggleCodeBlock(props.editor, event)}
         >code</span>
     </div>

@@ -1,6 +1,7 @@
 interface Child {
     text: string;
     bold?: boolean;
+    italic?: boolean;
 };
 
 interface GreatInterface {
