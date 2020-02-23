@@ -7,6 +7,7 @@ import Leaf from './Leaf/Leaf';
 import { State } from '../../data/interfaces/interfaces';
 import { KEYS, TEXTMODE } from '../../data/enums/enums';
 import CustomEditor from './CustomEditor/CustomEditor';
+import Toolbar from './Toolbar/Toolbar';
 
 const SyncingEditor: React.FC = () => {
     const editor = useMemo(() => withReact(createEditor()), []);
@@ -33,13 +34,11 @@ const SyncingEditor: React.FC = () => {
         if (event.ctrlKey) {
             switch (event.key) {
                 case KEYS.tilda: {
-                    event.preventDefault();
-                    CustomEditor.toggleCodeBlock(editor);
+                    CustomEditor.toggleCodeBlock(editor, event);
                     break;
                 }
                 case KEYS.bold: {
-                    event.preventDefault();
-                    CustomEditor.toggleBoldMark(editor);
+                    CustomEditor.toggleBoldMark(editor, event);
                     break;
                 }
             }
@@ -60,24 +59,7 @@ const SyncingEditor: React.FC = () => {
                 value={value} 
                 onChange={value => setValue(value as State[])}
             >
-                <div>
-                    <button
-                    onMouseDown={event => {
-                        event.preventDefault()
-                        CustomEditor.toggleBoldMark(editor)
-                    }}
-                    >
-                    B
-                    </button>
-                    <button
-                    onMouseDown={event => {
-                        event.preventDefault()
-                        CustomEditor.toggleCodeBlock(editor)
-                    }}
-                    >
-                    &lt;/&gt;
-                    </button>
-                </div>
+                <Toolbar editor={editor} />
                 <Editable
                     renderElement={renderElement}
                     renderLeaf={renderLeaf}

@@ -1,6 +1,10 @@
 @import '../assets/style/offset.scss';
 @import '../assets/style/palette.scss';
 
+.wrapper {
+    font-family: sans-serif;
+}
+
 .info-bar {
     margin: $offset-10;
     border: $offset-1 solid $color-silver;
@@ -22,5 +26,31 @@
     pre {
         margin: 0;
         background-color: $color-whitesmoke;
+    }
+}
+
+.toolbar {
+    position: relative;
+    border-bottom: 2px solid rgb(238, 238, 238);
+
+    &::before {
+        position: absolute;
+        top: -17px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0 4px;
+        background: $color-white;
+        font-size: 14px;
+        color: $color-dark-silver;
+        content: 'Awesome web Editor';
+    }
+
+    &__item {
+        color: $color-silver;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-dark-silver;
+        }
     }
 }
