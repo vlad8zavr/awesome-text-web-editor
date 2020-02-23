@@ -60,6 +60,24 @@ const SyncingEditor: React.FC = () => {
                 value={value} 
                 onChange={value => setValue(value as State[])}
             >
+                <div>
+                    <button
+                    onMouseDown={event => {
+                        event.preventDefault()
+                        CustomEditor.toggleBoldMark(editor)
+                    }}
+                    >
+                    B
+                    </button>
+                    <button
+                    onMouseDown={event => {
+                        event.preventDefault()
+                        CustomEditor.toggleCodeBlock(editor)
+                    }}
+                    >
+                    &lt;/&gt;
+                    </button>
+                </div>
                 <Editable
                     renderElement={renderElement}
                     renderLeaf={renderLeaf}
