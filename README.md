@@ -12,7 +12,7 @@ Redux / mobx пока идут лесом)
 
 ### 0. `npm i -g webpack webpack-cli`
 
-### 1. `npm i`
+### 1. `npm ci`
 
 ## Запуск
 

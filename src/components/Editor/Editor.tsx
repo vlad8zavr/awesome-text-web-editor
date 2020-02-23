@@ -6,6 +6,7 @@ import { DefaultElement, CodeElement } from './Elements/Elements';
 import Leaf from './Leaf/Leaf';
 import { State } from '../../data/interfaces/interfaces';
 import { KEYS, TEXTMODE } from '../../data/enums/enums';
+import CustomEditor from './CustomEditor/CustomEditor';
 
 const SyncingEditor: React.FC = () => {
     const editor = useMemo(() => withReact(createEditor()), []);
@@ -33,30 +34,12 @@ const SyncingEditor: React.FC = () => {
             switch (event.key) {
                 case KEYS.tilda: {
                     event.preventDefault();
-                    // Determine whether any of the currently selected blocks are code blocks.
-                    const [match] = Editor.nodes(editor, {
-                        match: n => n.type === TEXTMODE.code,
-                    });
-                    // Toggle the block type depending on whether there's already a match.
-                    Transforms.setNodes(
-                        editor,
-                        { type: match ? TEXTMODE.paragraph : TEXTMODE.code },
-                        { match: n => Editor.isBlock(editor, n) }
-                    );
+                    CustomEditor.toggleCodeBlock(editor);
                     break;
                 }
                 case KEYS.bold: {
                     event.preventDefault();
-                    const [match] = Editor.nodes(editor, {
-                        match: n => n.bold === true,
-                    });
-                    Transforms.setNodes(
-                        editor,
-                        { bold: match ? false : true },
-                        // Apply it to text nodes, and split the text node up if the
-                        // selection is overlapping only part of it.
-                        { match: n => Text.isText(n), split: true }
-                    );
+                    CustomEditor.toggleBoldMark(editor);
                     break;
                 }
             }
@@ -64,7 +47,7 @@ const SyncingEditor: React.FC = () => {
             switch (event.key) {
                 case KEYS.tab: {
                     event.preventDefault();
-                    editor.insertText('    ');
+                    CustomEditor.insertTab(editor);
                 }
             }
         }
