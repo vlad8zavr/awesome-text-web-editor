@@ -8,6 +8,8 @@ typescript, хуки, все дела.
 Redux / mobx пока идут лесом)
 ```
 
+![editor-screenshot](/images/screenshot-1.png)
+
 ## Установка
 
 ### 0. `npm i -g webpack webpack-cli`
