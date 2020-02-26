@@ -1,4 +1,4 @@
-# awesome-web-editor
+# awesome-text-web-editor
 
 ```
 Быстро, модно, молодежно...
