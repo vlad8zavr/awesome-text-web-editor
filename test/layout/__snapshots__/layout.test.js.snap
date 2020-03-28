@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`layout InfoBar should render correctly 1`] = `
+<div
+  className="info-bar"
+>
+  <div
+    className="info-bar__item"
+  >
+    toggle 
+    <strong>
+      code mode
+    </strong>
+    : Ctrl-\`
+  </div>
+  <div
+    className="info-bar__item"
+  >
+    toggle 
+    <strong>
+      bold text
+    </strong>
+    : Ctrl-b
+  </div>
+  <div
+    className="info-bar__item"
+  >
+    toggle 
+    <strong>
+      italic text
+    </strong>
+    : Ctrl-i
+  </div>
+</div>
+`;
+
+exports[`layout Toolbar should render correctly 1`] = `
+<div
+  className="toolbar"
+>
+  <span
+    className="toolbar__item material-icons"
+    onMouseDown={[Function]}
+  >
+    format_bold
+  </span>
+  <span
+    className="toolbar__item material-icons"
+    onMouseDown={[Function]}
+  >
+    format_italic
+  </span>
+  <span
+    className="toolbar__item material-icons"
+    onMouseDown={[Function]}
+  >
+    code
+  </span>
+</div>
+`;

@@ -23,3 +23,9 @@ Redux / mobx пока идут лесом)
 ### Разработка - `npm run dev`
 
 ### Продакшн - `npm run build`
+
+### Links
+
+1. article - https://medium.com/codeclan/testing-react-with-jest-and-enzyme-20505fec4675
+2. jest docs - https://jestjs.io/docs/ru/tutorial-react
+3. enzyme docs - https://enzymejs.github.io/enzyme/
