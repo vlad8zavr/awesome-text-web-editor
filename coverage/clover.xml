@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1585425820011" clover="3.2.0">
-  <project timestamp="1585425820012" name="All files">
-    <metrics statements="64" coveredstatements="23" conditionals="18" coveredconditionals="2" methods="27" coveredmethods="7" elements="109" coveredelements="32" complexity="0" loc="64" ncloc="64" packages="8" files="8" classes="8"/>
+<coverage generated="1585467716259" clover="3.2.0">
+  <project timestamp="1585467716259" name="All files">
+    <metrics statements="64" coveredstatements="23" conditionals="18" coveredconditionals="4" methods="27" coveredmethods="7" elements="109" coveredelements="34" complexity="0" loc="64" ncloc="64" packages="8" files="8" classes="8"/>
     <package name="components.Editor">
       <metrics statements="25" coveredstatements="9" conditionals="8" coveredconditionals="0" methods="6" coveredmethods="2"/>
       <file name="Editor.tsx" path="C:\Users\vladv\Documents\apps\awesome-web-editor\src\components\Editor\Editor.tsx">
@@ -73,13 +73,13 @@
       </file>
     </package>
     <package name="components.Editor.Leaf">
-      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <file name="Leaf.tsx" path="C:\Users\vladv\Documents\apps\awesome-web-editor\src\components\Editor\Leaf\Leaf.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="5" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="6" count="2" type="stmt"/>
+        <line num="4" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="4" type="stmt"/>
       </file>
     </package>
     <package name="components.Editor.Toolbar">
